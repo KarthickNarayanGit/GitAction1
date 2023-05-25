@@ -19,12 +19,10 @@ jobs:
           import cx_Oracle
 
 # Retrieve the necessary environment variables
-username = os.environ['ORACLE_USERNAME']
-password = os.environ['ORACLE_PASSWORD']
-host = os.environ['ORACLE_HOST']
+export ORACLE_USERNAME="${{ secrets.ORACLE_USERNAME }}"
+export ORACLE_PASSWORD="${{ secrets.ORACLE_PASSWORD }}"
+export ORACLE_HOST="${{ secrets.ORACLE_HOST }}"
 
-# Establish the Oracle database connection
-connection = cx_Oracle.connect(username, password, host)
-
-# Execute SQL queries or perform other database operations
+# Connect to Oracle database using SQL*Plus
+sqlplus -s $ORACLE_USERNAME/$ORACLE_PASSWORD@$ORACLE_HOST
 
