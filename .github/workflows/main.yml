@@ -16,3 +16,15 @@ jobs:
         run: |
           # Use the environment variables to connect to the Oracle database
           # You can use appropriate tools or libraries like cx_Oracle, SQL*Plus, etc.
+          import cx_Oracle
+
+# Retrieve the necessary environment variables
+username = os.environ['ORACLE_USERNAME']
+password = os.environ['ORACLE_PASSWORD']
+host = os.environ['ORACLE_HOST']
+
+# Establish the Oracle database connection
+connection = cx_Oracle.connect(username, password, host)
+
+# Execute SQL queries or perform other database operations
+
