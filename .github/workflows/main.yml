@@ -16,7 +16,7 @@ jobs:
         run: |
           # Use the environment variables to connect to the Oracle database
           # You can use appropriate tools or libraries like cx_Oracle, SQL*Plus, etc.
-          import cx_Oracle
+          import SQL*Plus
 
 # Retrieve the necessary environment variables
 export ORACLE_USERNAME="${{ secrets.ORACLE_USERNAME }}"
