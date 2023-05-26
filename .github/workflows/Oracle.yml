@@ -1,0 +1,15 @@
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Oracle environment
+        run: |
+          echo "export ORACLE_USERNAME=${{ secrets.ORACLE_USERNAME }}" >> $GITHUB_ENV
+          echo "export ORACLE_PASSWORD=${{ secrets.ORACLE_PASSWORD }}" >> $GITHUB_ENV
+          echo "export ORACLE_HOST=${{ secrets.ORACLE_HOST }}" >> $GITHUB_ENV
+          echo "export SERVICE_NAME=${{ secrets.SERVICE_NAME }}" >> $GITHUB_ENV
+
+          sqlplus $ORACLE_USERNAME/$ORACLE_PASSWORD@//$ORACLE_HOST/$SERVICE_NAME
