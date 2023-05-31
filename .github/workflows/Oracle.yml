@@ -7,11 +7,3 @@ jobs:
 # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      - name: Set up Oracle environment
-        run: |
-          echo "export ORACLE_USERNAME=${{ secrets.ORACLE_USERNAME }}" >> $GITHUB_ENV
-          echo "export ORACLE_PASSWORD=${{ secrets.ORACLE_PASSWORD }}" >> $GITHUB_ENV
-          echo "export ORACLE_HOST=${{ secrets.ORACLE_HOST }}" >> $GITHUB_ENV
-          echo "export SERVICE_NAME=${{ secrets.SERVICE_NAME }}" >> $GITHUB_ENV
-
-          sqlplus $ORACLE_USERNAME/$ORACLE_PASSWORD@//$ORACLE_HOST/$SERVICE_NAME
